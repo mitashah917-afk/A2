@@ -1,0 +1,83 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aframe-look-at-component@1.0.0/index.min.js"></script>
+</head>
+
+<body>
+  <a-scene mindar-image="imageTargetSrc: targets01.mind;" color-space="sRGB"
+    renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: false">
+    <a-assets>
+      <img id="card" src="Targets/A2a.png" />
+      <img id="card1" src="Targets/A2b.png" />
+      <a-asset-item id="avatarModel" src="Assets/Penguin.glb"></a-asset-item>
+      <a-asset-item id="avatarModel1" src="Assets/Ele.glb"></a-asset-item>
+      <a-asset-item id="avatarModel2" src="Assets/Stool1.glb"></a-asset-item>
+
+    </a-assets>
+
+    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+    <a-entity mindar-image-target="targetIndex: 0">
+    <a-entity position="0.5 -0.5 0.5" look-at="#elephant">
+  
+    <a-gltf-model 
+      src="#avatarModel"
+      rotation="20 0 0"
+      scale="1 1 1">
+   </a-gltf-model>
+
+   </a-entity>
+
+  <a-gltf-model id="elephant" rotation="30 0 0 " position="1 0.5 2" scale="0.8 0.8 0.8" src="#avatarModel1"
+      animation="property:
+      position; to: -1 0.5 2; 
+      dur: 3000; 
+      dir: alternate; 
+      loop: true; 
+      easing: easeInOutSine;"></a-gltf-model>
+
+  </a-entity>
+
+  <a-entity mindar-image-target="targetIndex: 1">
+
+<a-text 
+  value="S" 
+  position="-0.4 0 0" 
+  scale="1 1 1"
+  color="#000000" 
+  align="center">
+</a-text>
+
+
+<a-text 
+  value="OOLS" 
+  position="0.2 0 0" 
+  scale="1 1 1"
+  color="#000000" 
+  align="center">
+</a-text>
+
+<a-gltf-model
+  src="#avatarModel2"
+  position="-0.15 -0.15 0.25"
+  scale="0.6 0.6 0.6"
+  rotation="0 0 0"
+
+  animation="property: rotation;
+             to: 0 360 0;
+             dur: 2000;
+             loop: true;
+             easing: linear;">
+</a-gltf-model>
+
+  </a-entity>
+
+  </a-scene>
+</body>
+
+</html>
