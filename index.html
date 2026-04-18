@@ -8,7 +8,8 @@
 </head>
 
 <body>
-  <a-scene mindar-image="imageTargetSrc: targets01.mind; maxTrack:2" color-space="sRGB"
+  <a-scene mindar-image="imageTargetSrc: targets01.mind; maxTrack:2; filterMinCF: 0.0005;
+    filterBeta: 0.005; color-space="sRGB"
     renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
     device-orientation-permission-ui="enabled: false">
     <a-assets>
@@ -23,13 +24,13 @@
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
     <a-entity mindar-image-target="targetIndex: 0">
-    <a-plane color="black" position="0 0 0" height="0.552" width="1" opacity="0.5"></a-plane>
-    <a-entity position="0.5 -0.5 0.5" look-at="#elephant">
+    
+    <a-entity position="0.5 -0.5 0.5" look-at="#elephant" look-at-smooth="factor: 0.1">
   
     <a-gltf-model 
       src="#avatarModel"
       rotation="20 0 0"
-      scale="1 1 1">
+      scale="0.99 0.99 0.99">
    </a-gltf-model>
 
    </a-entity>
@@ -37,20 +38,19 @@
   <a-gltf-model id="elephant" rotation="30 0 0 " position="0.5 0.5 2" scale="0.8 0.8 0.8" src="#avatarModel1"
       animation="property:
       position; to: -0.5 0.5 2; 
-      dur: 3000; 
+      dur: 4000; 
       dir: alternate; 
       loop: true; 
-      easing: easeInOutSine;"></a-gltf-model>
+      easing: easeInOutQuad;"></a-gltf-model>
 
   </a-entity>
 
   <a-entity mindar-image-target="targetIndex: 1">
-  <a-plane color="black" position="0 0 0" height="0.552" width="1" opacity="0.5"></a-plane>
     
 <a-text 
   value="S" 
   position="-0.4 0 0" 
-  scale="1 1 1"
+  scale="0.99 0.99 0.99"
   color="#000000" 
   align="center">
 </a-text>
@@ -59,7 +59,7 @@
 <a-text 
   value="OOLS" 
   position="0.2 0 0" 
-  scale="1 1 1"
+  scale="0.99 0.99 0.99"
   color="#000000" 
   align="center">
 </a-text>
